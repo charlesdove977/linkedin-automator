@@ -1,3 +1,16 @@
+---
+name: linkedin-automator
+description: Automated LinkedIn outreach for Claude Code. Warm DM connections, reply to messages, build relationships, and grow your network — all through natural conversation, not spam.
+tags:
+  - linkedin
+  - outreach
+  - automation
+  - chrome
+  - networking
+  - social-selling
+  - dms
+---
+
 # linkedin-automator
 
 Automated LinkedIn outreach for Claude Code. Warm DM connections, reply to messages, build relationships, and grow your network — all through natural conversation, not spam.
@@ -17,10 +30,6 @@ Automated LinkedIn outreach for Claude Code. Warm DM connections, reply to messa
 - **Claude Code** with MCP support
 - **Claude-in-Chrome** extension installed and running
 - Launch Claude Code with: `claude --chrome`
-
-## Tags
-
-linkedin, outreach, automation, chrome, networking, social-selling, dms
 
 ## Installation
 
