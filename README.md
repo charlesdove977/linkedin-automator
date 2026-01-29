@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="LinkedIn Automator" width="500">
+</p>
+
 # LinkedIn Automator
 
 Automated LinkedIn outreach for Claude Code. Build relationships through genuine conversation, not spam.
@@ -38,10 +42,10 @@ The setup wizard will help verify your Chrome connection is working.
 | Command | Description |
 |---------|-------------|
 | `/linkedinoutreach` | **Setup wizard** - Configure profile, ICP, voice, schedule |
-| `/dmconnections` | **Outreach** - DM existing connections with personalized openers |
-| `/answerdm` | **Replies** - Answer unread DMs with contextual responses |
+| `/linkeddmconnections` | **Outreach** - DM existing connections with personalized openers |
+| `/linkedanswerdm` | **Replies** - Answer unread DMs with contextual responses |
 | `/linkedinpost` | **Content** - Generate posts from templates |
-| `/connecticp` | **Growth** - Send connection requests to ICP matches |
+| `/linkedconnect` | **Growth** - Send connection requests to ICP matches |
 
 ## Quick Start
 
@@ -59,9 +63,9 @@ This creates your `linkedin-automator/` folder with:
 
 ### Daily Workflow
 
-1. **Morning** - `/answerdm` to reply to overnight messages
-2. **Midday** - `/dmconnections` to start new conversations
-3. **Afternoon** - `/connecticp` to grow your network
+1. **Morning** - `/linkedanswerdm` to reply to overnight messages
+2. **Midday** - `/linkeddmconnections` to start new conversations
+3. **Afternoon** - `/linkedconnect` to grow your network
 4. **Weekly** - `/linkedinpost` to stay visible
 
 ## How It Works

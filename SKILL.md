@@ -7,10 +7,10 @@ Automated LinkedIn outreach for Claude Code. Warm DM connections, reply to messa
 | Command | Description |
 |---------|-------------|
 | `/linkedinoutreach` | Interactive setup wizard - configure your profile, ICP, voice, and preferences |
-| `/dmconnections` | Send personalized DMs to existing LinkedIn connections |
-| `/answerdm` | Reply to unread LinkedIn messages with contextual responses |
+| `/linkeddmconnections` | Send personalized DMs to existing LinkedIn connections |
+| `/linkedanswerdm` | Reply to unread LinkedIn messages with contextual responses |
 | `/linkedinpost` | Generate LinkedIn posts from proven templates |
-| `/connecticp` | Send connection requests to people matching your ICP |
+| `/linkedconnect` | Send connection requests to people matching your ICP |
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ npx skills add charlieautomates/linkedin-automator -g
 1. Install Claude-in-Chrome extension
 2. Launch Claude Code with `claude --chrome`
 3. Run `/linkedinoutreach` to configure your profile
-4. Start reaching out with `/dmconnections`
+4. Start reaching out with `/linkeddmconnections`
 
 ## Philosophy
 

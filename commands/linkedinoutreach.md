@@ -138,9 +138,9 @@ Voice: [Tone description]
 Mode: [Human-in-the-loop / Fully autonomous]
 
 Next steps:
-- /dmconnections - Start reaching out to connections
-- /answerdm - Reply to unread messages
-- /connecticp - Grow your network
+- /linkeddmconnections - Start reaching out to connections
+- /linkedanswerdm - Reply to unread messages
+- /linkedconnect - Grow your network
 
 Your tracking files are in linkedin-automator/
 ```
