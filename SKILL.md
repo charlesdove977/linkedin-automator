@@ -25,7 +25,7 @@ linkedin, outreach, automation, chrome, networking, social-selling, dms
 ## Installation
 
 ```bash
-npx skills add charlieautomates/linkedin-automator -g
+npx skills add charlesdove977/linkedin-automator -g
 ```
 
 ## Quick Start

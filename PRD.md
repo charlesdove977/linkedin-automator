@@ -1,7 +1,7 @@
 # LinkedIn Automator - PRD
 
 **Plugin Name:** linkedin-automator
-**Repo:** charlieautomates/linkedin-automator
+**Repo:** charlesdove977/linkedin-automator
 **Description:** Automated LinkedIn outreach for Claude Code. Warm DM connections, reply to messages, build relationships, and grow your network — all through natural conversation, not spam.
 
 ---
@@ -213,7 +213,7 @@
   As a user, I want clear installation instructions so I can get started quickly.
 
   **Acceptance Criteria:**
-  - Installation command: `npx skills add charlieautomates/linkedin-automator -g`
+  - Installation command: `npx skills add charlesdove977/linkedin-automator -g`
   - Prerequisites listed
   - Quick start guide
   - Command reference table
@@ -243,7 +243,7 @@
 ## Folder Structure (Plugin Repo)
 
 ```
-charlieautomates/linkedin-automator/
+charlesdove977/linkedin-automator/
 ├── SKILL.md
 ├── README.md
 ├── LICENSE

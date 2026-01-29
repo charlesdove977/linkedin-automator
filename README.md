@@ -16,7 +16,7 @@ Automated LinkedIn outreach for Claude Code. Build relationships through genuine
 ## Installation
 
 ```bash
-npx skills add charlieautomates/linkedin-automator -g
+npx skills add charlesdove977/linkedin-automator -g
 ```
 
 ## Prerequisites
