@@ -37,6 +37,12 @@ Automated LinkedIn outreach for Claude Code. Warm DM connections, reply to messa
 npx skills add charlesdove977/linkedin-automator -g
 ```
 
+**IMPORTANT: After installing, run the setup wizard:**
+```
+/linkedinoutreach
+```
+This creates your config and tracking folders. Other commands require setup first.
+
 ## Quick Start
 
 1. Install Claude-in-Chrome extension
