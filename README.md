@@ -15,11 +15,23 @@ Automated LinkedIn outreach for Claude Code. Build relationships through genuine
 
 ## Installation
 
+### Quick Install (Recommended)
 ```bash
-npx skills add charlesdove977/linkedin-automator -g
+curl -fsSL https://raw.githubusercontent.com/charlesdove977/linkedin-automator/main/install.sh | bash
 ```
 
-**IMPORTANT: After installing, run the setup wizard first:**
+### Manual Install
+```bash
+# Clone the repo
+git clone https://github.com/charlesdove977/linkedin-automator ~/linkedin-automator-temp
+
+# Symlink commands to Claude Code
+ln -s ~/linkedin-automator-temp/commands/*.md ~/.claude/commands/
+
+# Restart Claude Code
+```
+
+**After installing, run the setup wizard:**
 ```
 /linkedinoutreach
 ```
