@@ -24,7 +24,27 @@ Load config to get ICP criteria, voice settings, user info, and **automation_mod
 - If `human` → Show each message for approval before sending
 - If `autonomous` → Generate and send messages automatically
 
-### Step 2: Session Size
+### Step 2: Load Tracking Data (MANDATORY)
+
+**This step is non-negotiable. Always check tracking before any outreach.**
+
+1. Read `linkedin-automator/outreach/tracking.md`
+2. Build a "do not contact" list of all previously messaged connections:
+   - Extract all names and profile URLs from existing entries
+   - Note the date of last contact for each
+3. Store this list in memory for cross-referencing during evaluation
+
+```
+Loaded tracking data: X connections previously messaged.
+Ready to filter duplicates.
+```
+
+If tracking file doesn't exist or is empty:
+```
+No previous outreach logged. Starting fresh tracking.
+```
+
+### Step 3: Session Size
 
 ```
 How many connections do you want to message this session?
@@ -35,7 +55,7 @@ How many connections do you want to message this session?
 4. Manual (I'll say when to stop)
 ```
 
-### Step 3: Navigate to Connections
+### Step 4: Navigate to Connections
 
 Use Chrome automation:
 
@@ -43,17 +63,20 @@ Use Chrome automation:
 2. `mcp__claude-in-chrome__navigate` - Go to `https://www.linkedin.com/mynetwork/invite-connect/connections/`
 3. Wait for page load with `mcp__claude-in-chrome__read_page`
 
-### Step 4: Process Each Connection
+### Step 5: Process Each Connection
 
 For each connection on the page:
 
-#### 4a. Read Profile
+#### 5a. Read Profile
 
 - Get name, headline, profile link from the connections list
 - Use `mcp__claude-in-chrome__read_page` to extract connection details
 - If needed, click through to full profile for more context
 
-#### 4b. Evaluate Fit
+#### 5b. Evaluate Fit
+
+**FIRST: Check against tracking data loaded in Step 2.**
+- If connection name or profile URL matches any entry in the "do not contact" list → **Auto-skip** with note: `Skipped [Name] - already messaged on [date]`
 
 Using criteria from `references/filtering-criteria.md` and user's ICP:
 
@@ -68,7 +91,7 @@ Using criteria from `references/filtering-criteria.md` and user's ICP:
 - Employee without decision-making power
 - Job seeker ("seeking opportunities", "open to work")
 - Vague profiles ("visionary", "thought leader" with no substance)
-- Already messaged recently (check tracking.md)
+- **IN TRACKING LIST** (already messaged - caught by pre-check above)
 
 Present evaluation:
 
@@ -80,7 +103,7 @@ Reason: [Why this rating]
 
 If Skip, move to next. Otherwise continue.
 
-#### 4c. Generate Opener
+#### 5c. Generate Opener
 
 Using patterns from `references/opener-patterns.md` and user's voice:
 
@@ -91,7 +114,7 @@ Using patterns from `references/opener-patterns.md` and user's voice:
 - Never pitch in first message
 - Match user's configured tone
 
-#### 4d. Send or Approve (Based on Mode)
+#### 5d. Send or Approve (Based on Mode)
 
 **If automation_mode = human:**
 
@@ -117,7 +140,7 @@ Draft message to [Name]:
 - Continue to next connection
 - Respect rate limiting (2-3 second pause between sends)
 
-#### 4e. Log to Tracking
+#### 5e. Log to Tracking
 
 After each sent message, append to `linkedin-automator/outreach/tracking.md`:
 
@@ -131,7 +154,7 @@ After each sent message, append to `linkedin-automator/outreach/tracking.md`:
 - **Status**: Sent - awaiting reply
 ```
 
-### Step 5: Session Summary
+### Step 6: Session Summary
 
 After completing session (or user says stop):
 

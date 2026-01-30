@@ -24,7 +24,28 @@ Load config for voice settings, response guidelines, and **automation_mode**.
 - If `human` → Show each reply for approval before sending
 - If `autonomous` → Generate and send replies automatically
 
-### Step 2: Navigate to Messages
+### Step 2: Load Tracking Data (MANDATORY)
+
+**This step is non-negotiable. Always check tracking before processing DMs.**
+
+1. Read `linkedin-automator/dms/tracking.md`
+2. Build a conversation history reference:
+   - Extract all names and conversation types from existing entries
+   - Note last interaction date and status for each
+   - Identify any flagged conversations (stale, archived, cold pitch)
+3. Store this context for informed responses
+
+```
+Loaded DM tracking: X conversations logged.
+Ready to cross-reference history.
+```
+
+If tracking file doesn't exist or is empty:
+```
+No previous DM history logged. Starting fresh tracking.
+```
+
+### Step 3: Navigate to Messages
 
 Use Chrome automation:
 
@@ -32,7 +53,7 @@ Use Chrome automation:
 2. `mcp__claude-in-chrome__navigate` - Go to `https://www.linkedin.com/messaging/`
 3. Wait for page load
 
-### Step 3: Identify Unread Conversations
+### Step 4: Identify Unread Conversations
 
 Use `mcp__claude-in-chrome__read_page` to find conversations with unread indicators.
 
@@ -40,17 +61,22 @@ Use `mcp__claude-in-chrome__read_page` to find conversations with unread indicat
 Found X unread conversations. Let's go through them.
 ```
 
-### Step 4: Process Each Conversation
+### Step 5: Process Each Conversation
 
 For each unread conversation:
 
-#### 4a. Read Conversation History
+#### 5a. Read Conversation History
 
 - Click on the conversation
 - Read the full message thread for context
 - Note who they are (check their headline/profile)
 
-#### 4b. Classify Conversation
+#### 5b. Cross-Reference Tracking & Classify
+
+**FIRST: Check against tracking data loaded in Step 2.**
+- If conversation exists in tracking, note previous context (last reply, status, type)
+- Use history to inform response tone and continuity
+- Flag if previously marked as cold pitch or archived
 
 Using criteria from `references/dm-guidelines.md`:
 
@@ -62,7 +88,7 @@ Using criteria from `references/dm-guidelines.md`:
 | **Cold pitch to us** | Someone selling to you | Polite decline or ignore |
 | **Stale** | No reply in 14+ days | Consider archiving |
 
-Present classification:
+Present classification (include tracking context if available):
 
 ```
 [Name] - [Their headline]
@@ -70,7 +96,7 @@ Type: [Classification]
 Last message from them: "[Preview of their message]"
 ```
 
-#### 4c. Generate Response
+#### 5c. Generate Response
 
 Using `references/dm-guidelines.md` and user's voice:
 
@@ -90,7 +116,7 @@ This looks like a cold pitch. Options:
 3. Actually engage (if interesting)
 ```
 
-#### 4d. Send or Approve (Based on Mode)
+#### 5d. Send or Approve (Based on Mode)
 
 **If automation_mode = human:**
 
@@ -115,7 +141,7 @@ Reply to [Name]:
 - Continue to next conversation
 - Skip cold pitches automatically (log as skipped)
 
-#### 4e. Log to Tracking
+#### 5e. Log to Tracking
 
 After each reply, update `linkedin-automator/dms/tracking.md`:
 
@@ -129,7 +155,7 @@ After each reply, update `linkedin-automator/dms/tracking.md`:
 - **Status**: Active conversation
 ```
 
-### Step 5: Handle Stale Conversations
+### Step 6: Handle Stale Conversations
 
 After processing unreads, check for stale conversations:
 
@@ -143,7 +169,7 @@ Archive these as completed?
 
 If yes, move to "Archived" section in tracking.md.
 
-### Step 6: Session Summary
+### Step 7: Session Summary
 
 ```
 Session complete!
