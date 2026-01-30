@@ -24,18 +24,32 @@ Load config for ICP criteria and **automation_mode**.
 - If `human` → Show each profile for approval before connecting
 - If `autonomous` → Send connection requests automatically for ICP matches
 
-### Step 2: Check Weekly Limit
+### Step 2: Load Tracking Data (MANDATORY)
 
-Read `linkedin-automator/connections/tracking.md` to check weekly sends:
+**This step is non-negotiable. Always check tracking before sending connection requests.**
+
+1. Read `linkedin-automator/connections/tracking.md`
+2. Build a "do not request" list of all previously requested connections:
+   - Extract all names and profile URLs from existing entries
+   - Note status (pending, accepted, declined)
+3. Check weekly sends count
+4. Store this list in memory for cross-referencing during evaluation
 
 ```
-This week's connection requests: X/100
-Remaining: Y
+Loaded tracking data:
+- X connections previously requested
+- This week: Y/100 requests sent
+- Remaining quota: Z
 
-LinkedIn typically allows 100-200 requests per week.
-Approaching limit may trigger restrictions.
+Ready to filter duplicates.
 ```
 
+If tracking file doesn't exist or is empty:
+```
+No previous connection requests logged. Starting fresh tracking.
+```
+
+**Weekly limit check:**
 If over 80% of limit:
 ```
 Warning: You're at X% of your weekly limit.
@@ -90,6 +104,9 @@ Use `mcp__claude-in-chrome__read_page` to extract:
 
 #### 5b. Evaluate Against ICP
 
+**FIRST: Check against tracking data loaded in Step 2.**
+- If profile name or URL matches any entry in the "do not request" list → **Auto-skip** with note: `Skipped [Name] - already requested on [date] (status: [pending/accepted/declined])`
+
 Using `references/filtering-criteria.md` and user's ICP:
 
 **Connect signals:**
@@ -103,8 +120,8 @@ Using `references/filtering-criteria.md` and user's ICP:
 - Doesn't match ICP
 - No clear business signal
 - Profile looks inactive
-- Already connected (check)
-- Already sent request (check tracking)
+- Already connected (visible on profile)
+- **IN TRACKING LIST** (already requested - caught by pre-check above)
 
 #### 5c. Connect or Approve (Based on Mode)
 
