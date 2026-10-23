@@ -6,6 +6,8 @@
 
 Automated LinkedIn outreach for Claude Code. Build relationships through genuine conversation, not spam.
 
+Step-by-step guide and setup walkthrough: [LinkedIn Automation guide on charlieautomates.com](https://charlieautomates.com/free-resources/#linkedin-automation)
+
 ## What It Does
 
 - **DM Connections** - Send personalized openers to your existing connections
