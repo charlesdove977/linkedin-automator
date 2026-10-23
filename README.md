@@ -6,6 +6,8 @@
 
 Automated LinkedIn outreach for Claude Code. Build relationships through genuine conversation, not spam.
 
+**Want your LinkedIn outreach running on autopilot?** Join [CC Strategic AI +](https://www.skool.com/cc-strategic-ai-plus/about): my 27-day Claude Code mastery program with a 1-click install setup file, and you work with us to land your first AI client in 90 days, or your money back.
+
 Step-by-step guide and setup walkthrough: [LinkedIn Automation guide on charlieautomates.com](https://charlieautomates.com/free-resources/#linkedin-automation)
 
 ## What It Does
